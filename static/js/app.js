@@ -37,6 +37,14 @@ function buildCharts(sample) {
     let otu_labels=tastetest.otu_labels;
     let sample_values=tastetest.sample_values;
 
+      // Render the Bubble Chart
+      let vinegar = {
+      title: "Bacteria Cultures Per Sample",
+      margin: { t:50 },
+      xaxis: { title: "OTU ID" },
+      yaxis: {title: "Number of Bacteria"},
+      hovermode: "closest"
+    };
     // Build a Bubble Chart
     let scrubadubdub= [{
       x: otu_ids,
@@ -49,14 +57,7 @@ function buildCharts(sample) {
         colorscale: "Earth"
       }
     }];
-
-    // Render the Bubble Chart
-    let vinegar = {
-      title: "Bacteria Cultures Per Sample",
-      xaxis: { title: "OTU ID" },
-      margin: { t:0 },
-      hovermode: "closest"
-    };
+ 
     Plotly.newPlot("bubble", scrubadubdub, vinegar);
 
     // For the Bar Chart, map the otu_ids to a list of strings for your yticks
